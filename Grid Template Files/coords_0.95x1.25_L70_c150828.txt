@@ -1,0 +1,58 @@
+netcdf coords_0.95x1.25_L70_c150828 {
+dimensions:
+	lat = 192 ;
+	ilev = 71 ;
+	lev = 70 ;
+	lon = 288 ;
+	slat = 191 ;
+	slon = 288 ;
+variables:
+	double gw(lat) ;
+		gw:long_name = "gauss weights" ;
+	double hyai(ilev) ;
+		hyai:long_name = "hybrid A coefficient at layer interfaces" ;
+	double hyam(lev) ;
+		hyam:long_name = "hybrid A coefficient at layer midpoints" ;
+	double hybi(ilev) ;
+		hybi:long_name = "hybrid B coefficient at layer interfaces" ;
+	double hybm(lev) ;
+		hybm:long_name = "hybrid B coefficient at layer midpoints" ;
+	double ilev(ilev) ;
+		ilev:long_name = "hybrid level at interfaces (1000*(A+B))" ;
+		ilev:units = "hPa" ;
+		ilev:positive = "down" ;
+		ilev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		ilev:formula_terms = "a: hyai b: hybi p0: P0 ps: PS" ;
+	double lat(lat) ;
+		lat:long_name = "latitude" ;
+		lat:units = "degrees_north" ;
+	double lev(lev) ;
+		lev:long_name = "hybrid level at midpoints (1000*(A+B))" ;
+		lev:units = "hPa" ;
+		lev:positive = "down" ;
+		lev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		lev:formula_terms = "a: hyam b: hybm p0: P0 ps: PS" ;
+	double lon(lon) ;
+		lon:long_name = "longitude" ;
+		lon:units = "degrees_east" ;
+	double slat(slat) ;
+		slat:long_name = "staggered latitude" ;
+		slat:units = "degrees_north" ;
+	double slon(slon) ;
+		slon:long_name = "staggered longitude" ;
+		slon:units = "degrees_east" ;
+
+// global attributes:
+		:Conventions = "CF-1.0" ;
+		:source = "CAM" ;
+		:case = "F1850W5TCN_1deg_timing01" ;
+		:title = "UNSET" ;
+		:logname = "fvitt" ;
+		:host = "ys0127" ;
+		:Version = "$Name$" ;
+		:revision_Id = "$Id$" ;
+		:initial_file = "/glade/u/home/fvitt/work/FW5_1deg_timing01.cam.i.0001-01-05-00000.nc" ;
+		:topography_file = "/glade/p/cesmdata/cseg/inputdata/atm/cam/topo/fv0.9x1.25-default-PHIS-new-SGH-SGH30.nc" ;
+		:history = "Fri Aug 28 12:01:30 2015: ncks -v lat,lon,slat,slon,lev,ilev,hyam,hybm,hyai,hybi,gw /glade/u/home/fvitt/work/F1850W5TCN_1deg_timing01.cam.i.0001-01-05-00000.nc coords_0.95x1.25_L70_c150828.nc" ;
+		:NCO = "4.4.2" ;
+}

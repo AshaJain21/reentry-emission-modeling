@@ -1,0 +1,66 @@
+netcdf coords_0.95x1.25_L32_c20211222 {
+dimensions:
+	lat = 192 ;
+	ilev = 33 ;
+	lev = 32 ;
+	lon = 288 ;
+	slat = 191 ;
+	slon = 288 ;
+variables:
+	double P0 ;
+		P0:long_name = "reference pressure" ;
+		P0:units = "Pa" ;
+	double gw(lat) ;
+		gw:_FillValue = -900. ;
+		gw:long_name = "latitude weights" ;
+	double hyai(ilev) ;
+		hyai:long_name = "hybrid A coefficient at layer interfaces" ;
+	double hyam(lev) ;
+		hyam:long_name = "hybrid A coefficient at layer midpoints" ;
+	double hybi(ilev) ;
+		hybi:long_name = "hybrid B coefficient at layer interfaces" ;
+	double hybm(lev) ;
+		hybm:long_name = "hybrid B coefficient at layer midpoints" ;
+	double ilev(ilev) ;
+		ilev:long_name = "hybrid level at interfaces (1000*(A+B))" ;
+		ilev:units = "hPa" ;
+		ilev:positive = "down" ;
+		ilev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		ilev:formula_terms = "a: hyai b: hybi p0: P0 ps: PS" ;
+	double lat(lat) ;
+		lat:_FillValue = -900. ;
+		lat:long_name = "latitude" ;
+		lat:units = "degrees_north" ;
+	double lev(lev) ;
+		lev:long_name = "hybrid level at midpoints (1000*(A+B))" ;
+		lev:units = "hPa" ;
+		lev:positive = "down" ;
+		lev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		lev:formula_terms = "a: hyam b: hybm p0: P0 ps: PS" ;
+	double lon(lon) ;
+		lon:_FillValue = -900. ;
+		lon:long_name = "longitude" ;
+		lon:units = "degrees_east" ;
+	double slat(slat) ;
+		slat:_FillValue = -900. ;
+		slat:long_name = "staggered latitude" ;
+		slat:units = "degrees_north" ;
+	double slon(slon) ;
+		slon:_FillValue = -900. ;
+		slon:long_name = "staggered longitude" ;
+		slon:units = "degrees_east" ;
+
+// global attributes:
+		:Conventions = "CF-1.0" ;
+		:source = "CAM" ;
+		:case = "b.e21.BSSP370cmip6.f09_g17.CMIP6-SSP3-7.0.201" ;
+		:logname = "cmip6" ;
+		:host = "cheyenne5" ;
+		:initial_file = "b.e21.BHIST.f09_g17.CMIP6-historical.010_v2.cam.i.2015-01-01-00000.nc" ;
+		:topography_file = "/glade/p/cesmdata/cseg/inputdata/atm/cam/topo/fv_0.9x1.25_nc3000_Nsw042_Nrs008_Co060_Fi001_ZR_sgh30_24km_GRNL_c170103.nc" ;
+		:model_doi_url = "https://doi.org/10.5065/D67H1H0V" ;
+		:time_period_freq = "day_1" ;
+		:history = "Wed Dec 22 14:44:56 2021: ncks -C -x -v PS coords_0.95x1.25_L32_c20211222a.nc coords_0.95x1.25_L32_c20211222.nc\n",
+			"Wed Dec 22 14:41:16 2021: ncks -v lat,lon,slat,slon,lev,ilev,hyam,hybm,hyai,hybi,gw /glade/scratch/cmip6/archive/b.e21.BSSP370cmip6.f09_g17.CMIP6-SSP3-7.0.201/rest/2025-01-01-00000/b.e21.BSSP370cmip6.f09_g17.CMIP6-SSP3-7.0.201.cam.i.2025-01-01-00000.nc coords_0.95x1.25_L32_c20211222.nc" ;
+		:NCO = "netCDF Operators version 4.9.5 (Homepage = http://nco.sf.net, Code = http://github.com/nco/nco)" ;
+}
